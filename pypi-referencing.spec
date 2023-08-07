@@ -4,13 +4,14 @@
 # Using build pattern: pyproject
 #
 Name     : pypi-referencing
-Version  : 0.30.0
-Release  : 1
-URL      : https://files.pythonhosted.org/packages/ae/0e/5a4c22e046dc8c94fec2046255ddd7068b7aaff66b3d0d0dd2cfbf8a7b20/referencing-0.30.0.tar.gz
-Source0  : https://files.pythonhosted.org/packages/ae/0e/5a4c22e046dc8c94fec2046255ddd7068b7aaff66b3d0d0dd2cfbf8a7b20/referencing-0.30.0.tar.gz
+Version  : 0.30.2
+Release  : 2
+URL      : https://files.pythonhosted.org/packages/e1/43/d3f6cf3e1ec9003520c5fb31dc363ee488c517f09402abd2a1c90df63bbb/referencing-0.30.2.tar.gz
+Source0  : https://files.pythonhosted.org/packages/e1/43/d3f6cf3e1ec9003520c5fb31dc363ee488c517f09402abd2a1c90df63bbb/referencing-0.30.2.tar.gz
 Summary  : JSON Referencing + Python
 Group    : Development/Tools
 License  : MIT
+Requires: pypi-referencing-license = %{version}-%{release}
 Requires: pypi-referencing-python = %{version}-%{release}
 Requires: pypi-referencing-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
@@ -25,6 +26,14 @@ BuildRequires : pypi(hatchling)
 ``referencing``
 ===============
 |PyPI| |Pythons| |CI| |ReadTheDocs| |pre-commit|
+
+%package license
+Summary: license components for the pypi-referencing package.
+Group: Default
+
+%description license
+license components for the pypi-referencing package.
+
 
 %package python
 Summary: python components for the pypi-referencing package.
@@ -48,10 +57,10 @@ python3 components for the pypi-referencing package.
 
 
 %prep
-%setup -q -n referencing-0.30.0
-cd %{_builddir}/referencing-0.30.0
+%setup -q -n referencing-0.30.2
+cd %{_builddir}/referencing-0.30.2
 pushd ..
-cp -a referencing-0.30.0 buildavx2
+cp -a referencing-0.30.2 buildavx2
 popd
 
 %build
@@ -59,7 +68,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1690817527
+export SOURCE_DATE_EPOCH=1691428583
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -83,6 +92,9 @@ popd
 %install
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/package-licenses/pypi-referencing
+cp %{_builddir}/referencing-%{version}/COPYING %{buildroot}/usr/share/package-licenses/pypi-referencing/db178d96d13d574857d6cdf975339550f74da25b || :
+cp %{_builddir}/referencing-%{version}/suite/LICENSE %{buildroot}/usr/share/package-licenses/pypi-referencing/db178d96d13d574857d6cdf975339550f74da25b || :
 pip install --root=%{buildroot} --no-deps --ignore-installed dist/*.whl
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -99,6 +111,10 @@ popd
 
 %files
 %defattr(-,root,root,-)
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/pypi-referencing/db178d96d13d574857d6cdf975339550f74da25b
 
 %files python
 %defattr(-,root,root,-)
