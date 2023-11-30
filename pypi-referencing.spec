@@ -6,10 +6,10 @@
 # autospec commit: e661f3a
 #
 Name     : pypi-referencing
-Version  : 0.31.0
-Release  : 4
-URL      : https://files.pythonhosted.org/packages/61/11/5e947c3f2a73e7fb77fd1c3370aa04e107f3c10ceef4880c2e25ef19679c/referencing-0.31.0.tar.gz
-Source0  : https://files.pythonhosted.org/packages/61/11/5e947c3f2a73e7fb77fd1c3370aa04e107f3c10ceef4880c2e25ef19679c/referencing-0.31.0.tar.gz
+Version  : 0.31.1
+Release  : 5
+URL      : https://files.pythonhosted.org/packages/80/ce/e99def6196f53af8de12a9c36968de32f80b7871084d677d0dfcd2762d0b/referencing-0.31.1.tar.gz
+Source0  : https://files.pythonhosted.org/packages/80/ce/e99def6196f53af8de12a9c36968de32f80b7871084d677d0dfcd2762d0b/referencing-0.31.1.tar.gz
 Summary  : JSON Referencing + Python
 Group    : Development/Tools
 License  : MIT
@@ -59,10 +59,10 @@ python3 components for the pypi-referencing package.
 
 
 %prep
-%setup -q -n referencing-0.31.0
-cd %{_builddir}/referencing-0.31.0
+%setup -q -n referencing-0.31.1
+cd %{_builddir}/referencing-0.31.1
 pushd ..
-cp -a referencing-0.31.0 buildavx2
+cp -a referencing-0.31.1 buildavx2
 popd
 
 %build
@@ -70,7 +70,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1700062932
+export SOURCE_DATE_EPOCH=1701341195
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
