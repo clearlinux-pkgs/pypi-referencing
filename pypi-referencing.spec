@@ -7,7 +7,7 @@
 #
 Name     : pypi-referencing
 Version  : 0.32.0
-Release  : 6
+Release  : 7
 URL      : https://files.pythonhosted.org/packages/96/71/0aabc36753b7f4ad18cbc3c97dea9d6a4f204cbba7b8e9804313366e1c8f/referencing-0.32.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/96/71/0aabc36753b7f4ad18cbc3c97dea9d6a4f204cbba7b8e9804313366e1c8f/referencing-0.32.0.tar.gz
 Summary  : JSON Referencing + Python
