@@ -1,5 +1,5 @@
 PKG_NAME := pypi-referencing
-URL = https://files.pythonhosted.org/packages/6a/1f/c74e341a7a2a6fb2ab77d3a7311bd57a31e766e5d006a25053484cccbfeb/referencing-0.35.0.tar.gz
+URL = https://files.pythonhosted.org/packages/99/5b/73ca1f8e72fff6fa52119dbd185f73a907b1989428917b24cff660129b6d/referencing-0.35.1.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
